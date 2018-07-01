@@ -1,8 +1,6 @@
 # challenge.resolvido
 
---Banco de dados SQL.
--->Olá!!! Estou fazendo do modo em que aprendi
---até o momento.Estou usando Oracle SQL Developer
+-->Olá!!!Estou usando Oracle SQL Developer
 -->Irei começar do zero
 
 DROP TABLE ATENDENTES CASCADE CONSTRAINTS;
@@ -20,7 +18,8 @@ CREATE TABLE INCIDENTE (
             CLIENTE          NUMBER(11) NOT NULL ,
             DESCRIÇÃO        VARCHAR2(512) DEFAULT NULL,
             STATUS           VARCHAR2(16) DEFAULT NULL,
-            CREATION_TIME    TIMESTAMP (6)
+            CREATION_TIME    TIMESTAMP (6) 
+            
             );
             
 
@@ -43,6 +42,7 @@ PRIMARY KEY ( ID_CLIENTE );
 ALTER TABLE INCIDENTE
 ADD CONSTRAINT ID_INCIDENTE_PK
 PRIMARY KEY ( ID_INCIDENTE );
+
 
 --CHAVES ESTRANGEIRAS
 
@@ -78,8 +78,16 @@ INSERT INTO CLIENTES VALUES
 --INSERINDO INCIDENTE
 
 INSERT INTO INCIDENTE VALUES
-(1, 4, 2, 'Desc do problema', 'aberto', '19-06-2018 01:12:48');
+(1, 4, 2, 'Desc do problema' , 'aberto', '18/06/2018 01:12:48');
+
+COMMIT
+
+
 -----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 --Aparte em html e php
 --estou em aprendizado ainda
@@ -95,39 +103,49 @@ INSERT INTO INCIDENTE VALUES
          </head>
 
       <body>
-                 <?php
-
-                    
-<h1>"######incidentes######"</h1>
+	  
+	  
+	  <h1>"------INCIDENTES------"</h1>
     
+	  <h2>"#### CADASTRO DE INCIDENTES ####"</h2>
                      
-              <h2> "Escolha uma opção" $opção ;</h2>
+              "Escolha uma opção"</br></br>
                      
-               
-            echo "1 - Abrir incidentes";
-            echo "2 - Listar incidentes";
-            echo "3 - Encerrar incidentes";
+      
+		 "1 - Abrir";</br>
+		 "2 - Listar";</br>
+		 "3 - Encerrar";</br>
+		
+	    "Opcao:  ";</br>
+      
+ <?php
+				
+            $opcao = 0;				
 
-                      switch ( opção ){
+		
+		switch ($opcao){
+			
+			case 0: 
+			       echo "Abrindo....";
+			       break;
+			
+			case 1: 
+			       echo "Listando....";
+			       break;
+			
+			case 2: 
+			       echo "Encerrando....";
+			       break;
+			
+			default:
+			echo "Opcao invalida!";
+		}
+		getch();
+	}while(opcao!=3);
+	getch();
 
-                      case 1:
-                      echo "Abrir incidentes" ;
-                      break;
-   
-                      case 2:
-                      echo "Listar incidentes";
-                      break;
-
-                     case 3:
-                     echo "Encerrar incidentes";
-                     break;
-
-                     default:
-                     echo "Opção inválida";
-                     break;
-
-                  ?>
-      </body>
+?>
+   </body>
+      
 </html>
-
 
